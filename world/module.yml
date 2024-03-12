@@ -1,0 +1,9 @@
+name: World
+challenges:
+  - id: earth
+    name: Earth
+    image: earth-image
+
+  - id: mars
+    name: Mars
+    image: mars-image

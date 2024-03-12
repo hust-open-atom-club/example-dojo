@@ -1,0 +1,10 @@
+name: Hello
+image: hello
+challenges:
+  - id: apple
+    name: Apple
+    image: apple-image
+    
+  - id: banana
+    name: Banana
+    image: banana-image
