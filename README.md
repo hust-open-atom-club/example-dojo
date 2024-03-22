@@ -27,7 +27,7 @@
 
 - `id`：**必需**。Dojo的唯一标识符。
 - `name`：**必需**。Dojo的显示名称。
-- `type`：**可选**。此字段可以取值`welcome`、`course`、`topic`、`example`、`hidden`、`beginner`、`intermediate`、`advanced`。`course`将其放在“课程”部分。`topic`将Dojo放在“主题”部分。`hidden`意味着Dojo不会被列出（但仍然可以访问）。`beginner`将dojo放在“初级者”部分，其他以此类推，如果省略type字段或包含除这八个之外的值，则Dojo将出现在“更多”部分。
+- `type`：**可选**。此字段可以取值`welcome`、`course`、`topic`、`example`、`hidden`、`Elementary`、`Intermediate`、`Advanced`。`course`将其放在“课程”部分。`topic`将Dojo放在“主题”部分。`hidden`意味着Dojo不会被列出（但仍然可以访问）。`Elementary`将dojo放在“初级者”部分，其他以此类推，如果省略type字段或包含除这八个之外的值，则Dojo将出现在“更多”部分。
 - `password`：**可选**。用户加入Dojo需要的密码。如果省略，则任何人都可以加入Dojo。
 - `modules`：**必需**。`Module`对象的数组，`module`的参数，参考module部分。
 - `award`:**可选**。子参数为`belt`,`emoji` ,内容为svg/png的文件名，`belt`的文件存放路径为：`/dojo_theme/static/img/belts/`。`emoji`的文件存放路径为：`/dojo_theme/static/img/dojo/`。
@@ -38,7 +38,7 @@ id: your_dojo_id
 
 name: your_dojo_name
 
-type: welcome/course/topic/example/hidden/beginner/intermediate/advanced
+type: welcome/course/topic/example/hidden/Elementary/Intermediate/Advanced
 
 award:
   belt: PokeBall
