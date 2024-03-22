@@ -27,10 +27,27 @@
 
 - `id`：**必需**。Dojo的唯一标识符。
 - `name`：**必需**。Dojo的显示名称。
-- `description`：**可选**。关于Dojo的额外详细信息。这可以包括格式化的markdown文本。
-- `type`：**可选**。此字段可以取值`course`、`topic`或`hidden`。`course`将其放在“课程”部分。`topic`将Dojo放在“主题”部分。`hidden`意味着Dojo不会被列出（但仍然可以访问）。如果省略type字段或包含除这三个之外的值，则Dojo将出现在“更多”部分。
+- `type`：**可选**。此字段可以取值`welcome`、`course`、`topic`、`example`、`hidden`、`beginner`、`intermediate`、`advanced`。`course`将其放在“课程”部分。`topic`将Dojo放在“主题”部分。`hidden`意味着Dojo不会被列出（但仍然可以访问）。`beginner`将dojo放在“初级者”部分，其他以此类推，如果省略type字段或包含除这八个之外的值，则Dojo将出现在“更多”部分。
 - `password`：**可选**。用户加入Dojo需要的密码。如果省略，则任何人都可以加入Dojo。
-- `modules`：**必需**。`Module`对象的数组。
+- `modules`：**必需**。`Module`对象的数组，`module`的参数，参考module部分。
+- `award`:**可选**。子参数为`belt`,`emoji` ,内容为svg/png的文件名，`belt`的文件存放路径为：`/dojo_theme/static/img/belts/`。`emoji`的文件存放路径为：`/dojo_theme/static/img/dojo/`。
+
+使用样例：
+```
+id: your_dojo_id
+
+name: your_dojo_name
+
+type: welcome/course/topic/example/hidden/beginner/intermediate/advanced
+
+award:
+  belt: PokeBall
+  emoji: PokeBall
+
+modules:
+  - id: your_module_id
+    icon: Pikachu
+```
 
 ### Module
 
@@ -38,9 +55,57 @@
 
 - `id`：**必需**。模块的唯一标识符。
 - `name`：**必需**。模块的显示名称。
-- `description`：**可选**。关于模块的额外详细信息。
-- `challenges`：**必需**。`Challenge`对象的数组。
-- `image`: **可选**。关于模块的图片信息。
+- `challenges`：**必需**。`challenge`对象的数组,具体子参数参考challenge部分。
+- `resources`：**可选**。`resources`参考resources的部分。
+- `icon`：**可选**。关于模块的图片信息。`icon`的文件存放路径为：`/dojo_theme/static/img/dojo/`。
+
+使用样例
+```
+name: your_module_name
+challenges:
+
+  - id: vscode
+    name: your_challenge_name
+    level: 1
+
+resources:
+  - name: your_resources_name
+    type: lecture
+    video: "829819163"
+    playlist: "BV1bu4y197Zj"
+  
+  - name: "未包含的功能介绍"
+    type: markdown
+    content: |
+        your_content_text
+```
+
+### resources
+
+`resources`数组中包含以下属性：
+
+- `name`：**必需**。资源的显示名称。
+- `type`：**必需**。可选项为`lecture` / `markdown` `lecture`则为视频报告内容，`markdown`则为纯文本内容。
+- `video`：**可选**。仅支持`bilibili`，内容为`cid`，如果选择`video`，则需要和playlist对应使用，`playlist`为BV号。
+- `playlist`：**可选**。仅支持bilibili，内容为BV号，如果选择playlist，则需要和video对应使用，video为cid。
+- `content`：**可选**。内容为显示的文字内容。
+- `slides`：**可选**。仅支持github.io的page页面，关于资源的pdf信息。内容为pdf的文件名。
+
+使用样例
+```
+resources:
+  - name: your_resources_name
+    type: lecture
+    video: "438064585"
+    playlist: "BV1mj411M7NZ"
+    slides: "SetUID"
+
+  - name: your_resources_name
+    type: markdown
+    content: |
+      - <https://gist.github.com/mudongliang/7b68290c2b4d5da0b7140c8b0e1827d0>
+
+```
 
 ### Challenge
 
@@ -48,9 +113,16 @@
 
 - `id`：**必需**。挑战的唯一标识符。
 - `name`：**必需**。挑战的显示名称。
-- `description`：**可选**。关于挑战的额外详细信息。
-- `image`: **可选**。关于挑战的图片信息。
+- `icon`: **可选**。关于挑战的图片信息。`icon`的文件存放路径为：`/dojo_theme/static/img/dojo/`。
+- `level`：**可选**。关于`challenge`的等级显示。
 
+使用样例：
+```
+challenges:
+  - id: level-0-0
+    name: your_challenge_name
+    level: 1
+```
 ## 挑战编写规则
 
 ### Flag
@@ -62,7 +134,7 @@ Flag位于`/flag`，只能被`root`读取。
 不要假设flag有任何结构。
 它可能有或没有前缀/后缀。
 它可能是也可能不是50字节长。
-这些事情会改变，如果你依赖它们，你的挑战会破裂。
+这些事情会改变，如果你依赖它们，你的challenge会失败。
 
 ### 挑战
 
