@@ -1,6 +1,6 @@
 id: example
 name: Example Dojo
-type: example
+type: welcome
 password: "12345678"
 award:
   emoji: hello-image
