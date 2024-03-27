@@ -1,6 +1,7 @@
 id: example
 name: Example Dojo
 type: example
+password: 123456
 award:
   emoji: hello-image
 modules:
