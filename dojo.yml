@@ -2,10 +2,10 @@ id: example
 name: Example Dojo
 type: example
 award:
-  emoji: hello-image
+  emoji: pokemon-gym
 modules:
   - id: hello
-    icon: hello-image
+    icon: pokemon-gym
     
   - id: world
-    icon: hello-image
+    icon: pokemon-gym
