@@ -1,7 +1,11 @@
 name: World
+
 challenges:
+
   - id: earth
     name: Earth
+    level: 3
 
   - id: mars
     name: Mars
+    level: 2

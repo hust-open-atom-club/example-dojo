@@ -113,16 +113,17 @@ resources:
 
 - `id`：**必需**。挑战的唯一标识符。
 - `name`：**必需**。挑战的显示名称。
-- `icon`: **可选**。关于挑战的图片信息。`icon` 的文件存放路径为：`/dojo_theme/static/img/dojo/`。
 - `level`：**可选**。关于 `challenge` 的等级显示。
 
 使用样例：
+
 ```
 challenges:
   - id: level-0-0
     name: your_challenge_name
     level: 1
 ```
+
 ## 挑战编写规则
 
 ### Flag

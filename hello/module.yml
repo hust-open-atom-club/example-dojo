@@ -1,12 +1,11 @@
 name: Hello
-image: hello
+
 challenges:
+
   - id: apple
     name: Apple
-    icon: apple-image
     level: 5
     
   - id: banana
     name: Banana
-    icon: banana-image
     level: 4
